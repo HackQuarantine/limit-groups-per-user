@@ -136,10 +136,7 @@ class Limit_Groups_Per_User_Admin_Helper {
 	 * Add Menu
 	 */
 	public function add_menu() {
-		$user_meta = get_userdata($user_id);
-		$user_roles = $user_meta->roles;
-
-		if ( in_array( 'administrator', $user_roles, true ) ) {
+		if ( current_user_can( 'edit_pages' ) ) {
 		 add_options_page(
 			_x( 'Limit Groups Per User', 'Admin settings page title', 'limit-groups-per-user' ),
 			_x( 'Limit Groups Per User', 'Admin settings menu label', 'limit-groups-per-user' ),
